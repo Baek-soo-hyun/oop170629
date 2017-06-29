@@ -2,9 +2,11 @@ package com.hanbit.oop.controller;
 
 import java.util.Scanner;
 
+import com.hanbit.oop.service.BMIService;
 import com.hanbit.oop.service.BigNumberService;
 import com.hanbit.oop.service.CalcService;
 import com.hanbit.oop.service.GradeReport2Service;
+import com.hanbit.oop.service.GradeService;
 import com.hanbit.oop.service.RankingService;
 import com.hanbit.oop.service.TaxCalculatorService;
 import com.hanbit.oop.service.TopRankingService;
@@ -15,13 +17,15 @@ public class Controller {
 		CalcService calcService = new CalcService();
 		BigNumberService bigNumberService = new BigNumberService();
 		TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
+		GradeService gradeService = new GradeService();
 		GradeReport2Service gradeReport2Service = new GradeReport2Service();
 		RankingService rankingService = new RankingService();
 		TopRankingService topRankingService = new TopRankingService();
+		BMIService bmiService = new BMIService(); 
 		
 		while (true) {
-			System.out.println("0.stop 1.bmi 2.tax 3.+ 4.- 5.BigNumber 6.TaxCalculator 7.Time 8.GradeReport2 "
-					+ "9.RankingService 10.TopRankingService 11.calcPlus 12.calcMinus 13.calcMulti 14.calcDivid");
+			System.out.println("0.stop 1.bmi 2.tax 3.+ 4.- 5o.BigNumber 6.TaxCalculator 7.Time 8.GradeReport2 "
+					+ "9.RankingService 10.TopRankingService 11.calcPlus 12.calcMinus 13.grade 14.BMI");
 			
 			switch (s.next()) {
 			case "0":
@@ -177,10 +181,38 @@ public class Controller {
 				System.out.println(resultMinus);
 				break;
 				
+			// controller(main method)에는 최대한 연산자가 없어야 한다. 
+			// 객체로만 연산을 하는 것이 객체지향프로그래밍(OOP)이다.
 			case "13" :
+				System.out.print("이름은?\n");
+				String name3 = s.next();
+				gradeService.setName(name3);
+				System.out.print("전공은?\n");
+				String major = s.next();
+				gradeService.setMajor(major);
+				System.out.print("국어점수?\n");
+				int kor1 = s.nextInt();
+				gradeService.setKor(kor1);
+				System.out.print("영어점수?\n");
+				int eng1 = s.nextInt();
+				gradeService.setEng(eng1);
+				System.out.print("수학점수?\n");
+				int math1 = s.nextInt();
+				gradeService.setMath(math1);
+				gradeService.setGrade();
+				System.out.println(gradeService.toString());
 				break;
 				
 			case "14" :
+				System.out.println("몸무게를 입력해주세요.");
+				double weight1 = s.nextDouble();
+				bmiService.setWeight(weight1);
+				System.out.println("키를 입력해주세요.");
+				double height1 = s.nextDouble();
+				bmiService.setHeight(height1);
+				bmiService.setBmi();
+				bmiService.setComment();
+				System.out.println(bmiService.getComment());
 				break;
 				
 			case "15" :
