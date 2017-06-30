@@ -17,7 +17,6 @@ public class Controller {
 		CalcService calcService = new CalcService();
 		BigNumberService bigNumberService = new BigNumberService();
 		TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
-		GradeService gradeService = new GradeService();
 		GradeReport2Service gradeReport2Service = new GradeReport2Service();
 		RankingService rankingService = new RankingService();
 		TopRankingService topRankingService = new TopRankingService();
@@ -25,7 +24,7 @@ public class Controller {
 		
 		while (true) {
 			System.out.println("0.stop 1.bmi 2.tax 3.+ 4.- 5o.BigNumber 6.TaxCalculator 7.Time 8.GradeReport2 "
-					+ "9.RankingService 10.TopRankingService 11.calcPlus 12.calcMinus 13.grade 14.BMI");
+					+ "9.RankingService 10.TopRankingService 11.calcPlus 12.calcMinus 13.BMI");
 			
 			switch (s.next()) {
 			case "0":
@@ -180,30 +179,8 @@ public class Controller {
 				String resultMinus = calcService.calcMinus(first1, second1);
 				System.out.println(resultMinus);
 				break;
-				
-			// controller(main method)에는 최대한 연산자가 없어야 한다. 
-			// 객체로만 연산을 하는 것이 객체지향프로그래밍(OOP)이다.
+			
 			case "13" :
-				System.out.print("이름은?\n");
-				String name3 = s.next();
-				gradeService.setName(name3);
-				System.out.print("전공은?\n");
-				String major = s.next();
-				gradeService.setMajor(major);
-				System.out.print("국어점수?\n");
-				int kor1 = s.nextInt();
-				gradeService.setKor(kor1);
-				System.out.print("영어점수?\n");
-				int eng1 = s.nextInt();
-				gradeService.setEng(eng1);
-				System.out.print("수학점수?\n");
-				int math1 = s.nextInt();
-				gradeService.setMath(math1);
-				gradeService.setGrade();
-				System.out.println(gradeService.toString());
-				break;
-				
-			case "14" :
 				System.out.println("몸무게를 입력해주세요.");
 				double weight1 = s.nextDouble();
 				bmiService.setWeight(weight1);
@@ -214,12 +191,7 @@ public class Controller {
 				bmiService.setComment();
 				System.out.println(bmiService.getComment());
 				break;
-				
-			case "15" :
-				break;
-				
-			case "16" :
-				break;
+							
 			}
 		}
 	}
