@@ -1,14 +1,15 @@
 package com.hanbit.oop.controller;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import com.hanbit.oop.domain.MemberBean;
 import com.hanbit.oop.service.MemberService;
-import javax.swing.*;
+
+import serviceImpl.MemberServiceImpl;
 
 public class MemberController {
 	public static void main(String[] args) {
-		MemberService memberService = new MemberService();
+		MemberService memberService = new MemberServiceImpl();
 		MemberBean memberBean = new MemberBean();
 		while (true) {
 			switch (JOptionPane.showInputDialog("0.end 1.join 2.login")) {
