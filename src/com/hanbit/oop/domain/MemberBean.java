@@ -27,7 +27,10 @@ public class MemberBean {
 	public String getSsn() {
 		return ssn;
 	}
-	public String toString(String gender, String age) {
+	public String toString1(String gender, String age) {
 		return "WELCOME " + name + "(" + gender + "," + age + "세)";
+	}
+	public String toString() {
+		return "회원 [id=" + id + ", pw=" + pw + ", name=" + name + ", ssn=" + ssn + "]";
 	}
 }

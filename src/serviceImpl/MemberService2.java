@@ -56,7 +56,7 @@ public class MemberService2 {
 		String login = "", gender = getGender(member), age = getAge(member);
 		if (temp.getId().equals(session.getId())) {
 			if (temp.getPw().equals(session.getPw())) {
-				login = member.toString(gender, age);
+				login = member.toString1(gender, age);
 			} else {
 				login = "비밀번호가 일치하지 않습니다.\n";	
 			}
