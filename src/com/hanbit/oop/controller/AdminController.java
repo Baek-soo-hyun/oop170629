@@ -9,9 +9,7 @@ import serviceImpl.AdminServiceImpl;
 
 public class AdminController {
 	public static void main(String[] args) {
-		String sCount = JOptionPane.showInputDialog("관리자님 총회원수를 입력해주세요.");
-		int count = Integer.parseInt(sCount);
-		AdminService adminService = new AdminServiceImpl(count);
+		AdminService adminService = new AdminServiceImpl();
 		// MemberBean member = new MemberBean();
 		MemberBean member = null;
 		while(true) {
