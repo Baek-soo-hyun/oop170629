@@ -9,4 +9,5 @@ public interface AdminService {
 	public MemberBean findById(String id); // 변형 getter
 	public MemberBean[] findByName(String name);
 	public void updatePw(MemberBean member);
+	public void delete(String id);
 }

@@ -65,7 +65,19 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void updatePw(MemberBean updateMember) {
-		String id = updateMember.getId();
-		findById(id).setPw(updateMember.getPw());;
+		findById(updateMember.getId()).setPw(updateMember.getPw());;
+	}
+
+	@Override
+	public void delete(String id) {
+		for (int i=0 ; i<memberList.length ; i++) {
+			if (id.equals(memberList[i].getId())) {
+				// memberList[i] = memberList[i+1]; -> 뒤에서 한 칸씩 당기는 방법(1억 명일 때, 안티패턴)
+				memberList[i] = memberList[i-1]; // 순서 상관 없이 맨 마지막에 있는 회원을 i번째에 바꿔치기 하는 방법(성능 높음)
+				break;
+			}
+		}
+		memberList[count-1] = null;
+		count--;
 	}
 }
